@@ -1,0 +1,245 @@
+******************************************************************************
+                  TMS470 Linker PC v4.9.5                      
+******************************************************************************
+>> Linked Mon May 20 04:00:12 2013
+
+OUTPUT FILE NAME:   <chron.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000c65
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000daa  0003f256  R  X
+  SRAM                  20000000   00008000  00000212  00007dee  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000db0   00000db0    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000ae6   00000ae6    r-x .text
+  00000d58    00000d58    00000058   00000058    r-- .cinit
+20000000    20000000    000001d6   00000000    rw-
+  20000000    20000000    00000100   00000000    rw- .stack
+  20000100    20000100    000000d6   00000000    rw- .bss
+200001d8    200001d8    0000003c   0000003c    rw-
+  200001d8    200001d8    0000003c   0000003c    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000ae6     
+                  0000026c    00000278     display.obj (.text)
+                  000004e4    000001cc     chron_timer.obj (.text)
+                  000006b0    000001ac     pbuttons.obj (.text)
+                  0000085c    00000138     main.obj (.text)
+                  00000994    000000f4     led.obj (.text)
+                  00000a88    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00000b24    00000094                                   : auto_init.obj (.text)
+                  00000bb8    0000005e                                   : copy_decompress_rle.obj (.text)
+                  00000c16    00000002     --HOLE-- [fill = 0]
+                  00000c18    0000004c                                   : cpy_tbl.obj (.text)
+                  00000c64    00000048                                   : boot.obj (.text)
+                  00000cac    00000044                                   : exit.obj (.text)
+                  00000cf0    00000018                                   : _lock.obj (.text)
+                  00000d08    00000018                                   : args_main.obj (.text)
+                  00000d20    00000012                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00000d32    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000d40    0000000c     startup_ccs.obj (.text)
+                  00000d4c    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+
+.cinit     0    00000d58    00000058     
+                  00000d58    0000002e     (.cinit..data.load) [load image, compression = rle]
+                  00000d86    00000002     --HOLE-- [fill = 0]
+                  00000d88    0000000c     (__TI_handler_table)
+                  00000d94    00000004     --HOLE-- [fill = 0]
+                  00000d98    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000da0    00000010     (__TI_cinit_table)
+
+.stack     0    20000000    00000100     UNINITIALIZED
+                  20000000    00000100     --HOLE--
+
+.bss       0    20000100    000000d6     UNINITIALIZED
+                  20000100    000000c8     chron_timer.obj (.bss:laps)
+                  200001c8    00000008     display.obj (.bss)
+                  200001d0    00000006     chron_timer.obj (.bss)
+
+.data      0    200001d8    0000003c     
+                  200001d8    0000001c     display.obj (.data)
+                  200001f4    0000000c     pbuttons.obj (.data)
+                  20000200    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000208    00000008                                   : exit.obj (.data)
+                  20000210    00000004                                   : stkdepth_vars.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000da0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00000d58, load size=0000002e bytes, run addr=200001d8, run size=0000003c bytes, compression=rle
+	.bss: load addr=00000d98, load size=00000008 bytes, run addr=20000100, run size=000000d6 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000d88 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000cad   C$$EXIT
+00000d41   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+20000100   __STACK_END
+00000100   __STACK_SIZE
+20000100   __STACK_TOP
+00000da0   __TI_CINIT_Base
+00000db0   __TI_CINIT_Limit
+00000d88   __TI_Handler_Table_Base
+00000d94   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00000b25   __TI_auto_init
+00000d33   __TI_decompress_none
+00000d4d   __TI_decompress_rle24
+00000000   __TI_static_base__
+00000d21   __TI_zero_init
+00000a89   __aeabi_memcpy
+00000a89   __aeabi_memcpy4
+00000a89   __aeabi_memcpy8
+ffffffff   __binit__
+ffffffff   __c_args__
+20000000   __stack
+00000d09   _args_main
+00000c65   _c_int00
+20000208   _cleanup_ptr
+2000020c   _dtors_ptr
+20000200   _lock
+00000cfd   _nop
+00000723   _pbuttonPressed
+00000cf7   _register_lock
+00000cf1   _register_unlock
+00000505   _reset_laps
+20000204   _unlock
+00000cb1   abort
+ffffffff   binit
+00000787   btnPressed
+00000649   chronTimerGetLastLap
+00000657   chronTimerGetNextLap
+0000062b   chronTimerGetNumLaps
+00000597   chronTimerGetTimeInBcd
+00000631   chronTimerGetTimeLap
+0000068d   chronTimerIsRunning
+000005f7   chronTimerPause
+000004e5   chronTimerReset
+00000609   chronTimerSetLap
+000005eb   chronTimerSetTimeInBcd
+000005f9   chronTimerStart
+00000601   chronTimerStop
+00000539   chronTimerTick
+00000c19   copy_in
+0000049f   displayClear
+0000026d   displayInit
+000002d3   displayTempWrite
+000003bf   displayTest
+00000347   displayTick
+000002bd   displayWrite
+00000cb9   exit
+00000000   g_pfnVectors
+00000995   ledInit
+00000a3b   ledToggle
+00000a0b   ledTurnOff
+000009db   ledTurnOn
+0000085d   main
+20000210   main_func_sp
+00000a89   memcpy
+000006b1   pbuttonsInit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000100   __STACK_SIZE
+0000026d   displayInit
+000002bd   displayWrite
+000002d3   displayTempWrite
+00000347   displayTick
+000003bf   displayTest
+0000049f   displayClear
+000004e5   chronTimerReset
+00000505   _reset_laps
+00000539   chronTimerTick
+00000597   chronTimerGetTimeInBcd
+000005eb   chronTimerSetTimeInBcd
+000005f7   chronTimerPause
+000005f9   chronTimerStart
+00000601   chronTimerStop
+00000609   chronTimerSetLap
+0000062b   chronTimerGetNumLaps
+00000631   chronTimerGetTimeLap
+00000649   chronTimerGetLastLap
+00000657   chronTimerGetNextLap
+0000068d   chronTimerIsRunning
+000006b1   pbuttonsInit
+00000723   _pbuttonPressed
+00000787   btnPressed
+0000085d   main
+00000995   ledInit
+000009db   ledTurnOn
+00000a0b   ledTurnOff
+00000a3b   ledToggle
+00000a89   __aeabi_memcpy
+00000a89   __aeabi_memcpy4
+00000a89   __aeabi_memcpy8
+00000a89   memcpy
+00000b25   __TI_auto_init
+00000c19   copy_in
+00000c65   _c_int00
+00000cad   C$$EXIT
+00000cb1   abort
+00000cb9   exit
+00000cf1   _register_unlock
+00000cf7   _register_lock
+00000cfd   _nop
+00000d09   _args_main
+00000d21   __TI_zero_init
+00000d33   __TI_decompress_none
+00000d41   ResetISR
+00000d4d   __TI_decompress_rle24
+00000d88   __TI_Handler_Table_Base
+00000d94   __TI_Handler_Table_Limit
+00000da0   __TI_CINIT_Base
+00000db0   __TI_CINIT_Limit
+20000000   __stack
+20000100   __STACK_END
+20000100   __STACK_TOP
+20000200   _lock
+20000204   _unlock
+20000208   _cleanup_ptr
+2000020c   _dtors_ptr
+20000210   main_func_sp
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[67 symbols]
